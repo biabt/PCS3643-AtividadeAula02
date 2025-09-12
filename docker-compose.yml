@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: atividade02_PCS3643
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://user:password@db:5432/atividade02_PCS3643
+
+  frontend: 
+    build: ./frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+      - "8081:8081"   # Metro Bundler
+      - "19000:19000" # Expo Go (LAN)
+      - "19001:19001" # Debugger
+      - "19002:19002" # Web tools
+
+volumes:
+  db_data:

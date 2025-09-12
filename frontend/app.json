@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "mobile",
+    "slug": "mentuca",
+    "version": "1.0.0",
+    "sdkVersion": "53.0.0",
+    "jsEngine": "hermes",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "orientation": "portrait",
+    "ios": {
+      "bundleIdentifier": "com.mentuca.mentucaapp"
+    },
+    "android": {
+      "package": "com.mentuca.mentucaapp"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a61fd148-175e-4dd3-a176-fc2edd456952"
+      }
+    },
+    "owner": "bernardo1022"
+  },
+  "react-native": {
+  "hermes": true
+}
+}
